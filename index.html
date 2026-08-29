@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>my perfect delivery ✧</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1 class="page-title">my perfect delivery <span class="spark">✧</span></h1>
+  <p class="page-sub">deliver every order before the sun goes down 🌇</p>
+
+  <div class="game-wrap" id="gameWrap">
+
+    <!-- Same 4-layer sky crossfade trick as the sky-slider project, except
+         script.js now drives it using the game timer instead of a slider. -->
+    <div class="sky-layer sky-noon"></div>
+    <div class="sky-layer sky-dusk"></div>
+    <div class="sky-layer sky-night"></div>
+    <div class="stars" id="stars"></div>
+
+    <!-- Everything you actually see move (map, buildings, scooter, packages)
+         is drawn on this single canvas by script.js -->
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <!-- HUD sits on top of the canvas -->
+    <div class="hud">
+      <div class="hud-chip">📦 delivered: <span id="deliveredCount">0</span></div>
+      <div class="hud-chip">✨ score: <span id="scoreCount">0</span></div>
+    </div>
+
+    <div class="timer-bar">
+      <div class="timer-fill" id="timerFill"></div>
+    </div>
+
+    <!-- START SCREEN -->
+    <div class="overlay" id="startScreen">
+      <div class="overlay-card">
+        <p class="eyebrow">tutorial</p>
+        <h2>ready for your shift?</h2>
+        <p class="overlay-text">
+          steer your scooter with the arrow keys, WASD, or the buttons below.
+          drive into a package to deliver it. deliver as many as you can
+          before the sky finishes going dark — that's your whole time limit.
+        </p>
+        <button id="startBtn" class="primary-btn">start deliveries ✨</button>
+      </div>
+    </div>
+
+    <!-- END SCREEN -->
+    <div class="overlay" id="endScreen">
+      <div class="overlay-card">
+        <p class="eyebrow">shift over</p>
+        <h2>the sun's down!</h2>
+        <p class="overlay-text" id="endStats"></p>
+        <p class="overlay-tier" id="endTier"></p>
+        <button id="restartBtn" class="primary-btn">deliver again 🔁</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- On-screen D-pad: works for touch AND mouse clicks, and is a backup
+       for anyone whose keyboard focus isn't on the page. -->
+  <div class="touch-controls" aria-label="movement controls">
+    <button class="dpad-btn dpad-up" data-dir="up" aria-label="move up">▲</button>
+    <button class="dpad-btn dpad-left" data-dir="left" aria-label="move left">◀</button>
+    <button class="dpad-btn dpad-right" data-dir="right" aria-label="move right">▶</button>
+    <button class="dpad-btn dpad-down" data-dir="down" aria-label="move down">▼</button>
+  </div>
+
+  <div id="confettiLayer" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
